@@ -20,7 +20,6 @@ public class SortTest {
   }
 
   public static int[] read () {
-    DataInputStream dis = new DataInputStream(System.in);
     System.out.print("inputファイル名を入力してください: ");
     System.out.flush();
     Scanner stdin = new Scanner(System.in);
