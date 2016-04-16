@@ -20,5 +20,6 @@ public class MyList {
       if(i != l.size() - 1)
         System.out.print(" ");
     }
+    System.out.println();
   }
 }
