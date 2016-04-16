@@ -10,5 +10,10 @@ public class MyList {
   }
 
   public void output(ArrayList<Integer> l) {
+    for(int i = 0; i < l.size(); ++i) {
+      System.out.print(l.get(i));
+      if(i != l.size() - 1)
+        System.out.print(" ");
+    }
   }
 }
