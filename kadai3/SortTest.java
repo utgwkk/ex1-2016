@@ -31,7 +31,7 @@ public class SortTest {
       int[] l = new int[50];
       int i = 0;
       while (scan.hasNext()) {
-        int inint = Integer.parseInt(scan.next());
+        int inint = scan.nextInt();
         if (inint > 0 && inint < 10000 && i < 50) {
           l[i] = inint;
           ++i;
