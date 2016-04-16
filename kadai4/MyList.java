@@ -11,7 +11,7 @@ public class MyList {
 
   public void delete(int x, ArrayList<Integer> l) {
     while (l.contains(x))
-      l.remove(x);
+      l.remove((Object)x);
   }
 
   public void output(ArrayList<Integer> l) {
