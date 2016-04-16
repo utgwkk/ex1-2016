@@ -14,6 +14,7 @@ public class MyListTest {
     for (int i = 0; i < 10; ++i) {
       int inint = Integer.parseInt(scan.next());
       mylist.delete(inint, l);
+      mylist.output(l);
     }
   }
 }
