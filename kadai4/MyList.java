@@ -2,6 +2,11 @@ import java.util.*;
 
 public class MyList {
   public void insert(int x, ArrayList<Integer> l) {
+    int index = l.indexOf(i);
+    if (index == -1)
+      l.add(i);
+    else
+      l.add(index, i);
   }
 
   public void delete(int x, ArrayList<Integer> l) {
