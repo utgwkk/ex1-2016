@@ -3,6 +3,23 @@ import java.io.*;
 
 public class SortTest {
   public static void main (String[] args) {
+    int[] input = read();
+    BubbleSort bs = new BubbleSort();
+    if (input == null) {
+      System.out.println("配列の読み込みに失敗しました");
+      return;
+    }
+    int[] sorted = bs.sort(input);
+    for (int j = 0; j < sorted.length; ++j) {
+      if (j % 10 == 0 && j > 0)
+        System.out.println();
+      System.out.print(String.format("%1$4d", sorted[j]));
+      if (j % 10 >= 0 && j % 10 < 9)
+        System.out.print(" ");
+    }
+  }
+
+  public static int[] read () {
     DataInputStream dis = new DataInputStream(System.in);
     System.out.print("inputファイル名を入力してください: ");
     System.out.flush();
@@ -20,15 +37,10 @@ public class SortTest {
           ++i;
         }
       }
-      BubbleSort bs = new BubbleSort();
-      l = bs.sort(l);
-      for (int j = 0; j < l.length; ++j) {
-        if (j % 10 == 0 && j > 0)
-          System.out.println();
-        System.out.print(String.format("%1$5d", l[j]));
-      }
+      return l;
     } catch (FileNotFoundException e) {
       System.out.println("ファイル " + infilename + " は存在しません");
+      return null;
     }
   }
 }
