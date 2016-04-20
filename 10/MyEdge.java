@@ -1,9 +1,8 @@
 public class MyEdge {
-  public int from, to, dest;
+  public int to, dist;
 
-  public MyEdge (int f, int t, int d) {
-    this.from = f;
+  public MyEdge (int t, int d) {
     this.to = t;
-    this.dest = d;
+    this.dist = d;
   }
 }
