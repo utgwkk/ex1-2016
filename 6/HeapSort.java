@@ -1,18 +1,18 @@
+import java.io.*;
+
 public class HeapSort {
   private int[] heap;
+  private final int inf = 10000000;
+
   public int[] sort (int[] input) {
-    heap = new int[input.length];
-    // Initialize heap with -1
-    for (int i = 0; i < heap.length; ++i ) {
-      heap[i] = -1;
+    Heap q = new Heap();
+    for (int i = 0; i < input.length; ++i ) {
+      q.push(input[i]);
+    }
+    for (int i = 0; i < input.length; ++i ) {
+      input[i] = q.top();
+      q.pop();
     }
     return input;
-  }
-
-  private int parent (int index) {
-    return (index - 1) / 2;
-  }
-
-  private void heapInsert (int value) {
   }
 }
