@@ -21,6 +21,7 @@ public class MyGraph {
         t = scanner.nextInt();
         d = scanner.nextInt();
         graph.get(f).add(new MyEdge(t,d));
+        graph.get(t).add(new MyEdge(f,d));
       }
     } catch (FileNotFoundException e) {
     }
