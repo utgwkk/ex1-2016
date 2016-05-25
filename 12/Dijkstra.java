@@ -22,7 +22,7 @@ public class Dijkstra {
       prev.add(-1);
     }
     dist.set(start, 0);
-    Heap q = new Heap();
+    MyPriorityQueue q = new MyPriorityQueue();
     q.push(new MyVertex(start, 0));
     while (!q.empty()) {
       MyVertex v = q.top();
