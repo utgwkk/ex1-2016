@@ -1,30 +1,30 @@
+import java.lang.*;
 import java.util.*;
 import java.io.*;
 
 public class MyListTest {
   public static void main (String[] args) {
-    Scanner scan = new Scanner(System.in);
+    MyScanner scan = new MyScanner();
     ArrayList<Integer> l = new ArrayList<Integer>();
     MyList mylist = new MyList();
-    for (int i = 0; i < 10; i++) {
-      int inint = scan.nextInt();
-      if (inint > 0 && inint < 10000)
+    try {
+      for (int i = 0; i < 10; i++) {
+        int inint = scan.getInput();
         l.add(inint);
-    }
-    mylist.output(l);
-    for (int i = 0; i < 10; ++i) {
-      int inint = scan.nextInt();
-      if (inint > 0 && inint < 10000){
+      }
+      mylist.output(l);
+      for (int i = 0; i < 10; ++i) {
+        int inint = scan.getInput();
         mylist.insert(inint, l);
         mylist.output(l);
       }
-    }
-    for (int i = 0; i < 10; ++i) {
-      int inint = scan.nextInt();
-      if (inint > 0 && inint < 10000){
+      for (int i = 0; i < 10; ++i) {
+        int inint = scan.getInput();
         mylist.delete(inint, l);
         mylist.output(l);
       }
+    } catch (NumberFormatException e) {
+      System.out.println("不正なデータが入力されました");
     }
   }
 }
