@@ -1,9 +1,6 @@
 import java.io.*;
 
 public class HeapSort {
-  private int[] heap;
-  private final int inf = 10000000;
-
   public int[] sort (int[] input) {
     Heap q = new Heap();
     for (int i = 0; i < input.length; ++i ) {

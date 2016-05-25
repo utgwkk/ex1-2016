@@ -24,13 +24,12 @@ public class Heap {
   }
 
   public void pop () {
-    heap.remove(0);
+    heap.set(0,heap.get(heap.size() - 1));
+    heap.remove(heap.size() - 1);
     heapify();
   }
 
   private void heapify () {
-    heap.set(0,heap.get(heap.size() - 1));
-    heap.remove(heap.size() - 1);
     int i = 0;
     while(leftChild(i) < heap.size()){
       int par = heap.get(i);
