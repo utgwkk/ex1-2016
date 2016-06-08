@@ -12,9 +12,8 @@ public class SortTest {
     BucketSort bs = new BucketSort();
     input = bs.sort(input);
     for (int i = 0; i < input.size(); ++i) {
-      System.out.print(String.format("%s ", input.get(i)));
+      System.out.println(input.get(i));
     }
-    System.out.println();
   }
 
   public static ArrayList<String> read () {
