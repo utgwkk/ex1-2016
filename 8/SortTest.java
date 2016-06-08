@@ -27,18 +27,22 @@ public class SortTest {
     try {
       File inputFile = new File(infilename);
       Scanner scan = new Scanner(inputFile);
-      int[] l = new int[50];
-      int i = 0;
-      while (scan.hasNext()) {
+      ArrayList<Integer> al = new ArrayList<>();
+      for (int i = 0; scan.hasNext(); ++i) {
         int inint = scan.nextInt();
         if (inint > 0 && inint < 10000 && i < 50) {
-          l[i] = inint;
-          ++i;
+          al.add(inint);
+        } else {
+          System.err.println("要件を満たしていないデータが入力されました");
+          return null;
         }
       }
+      int[] l = new int[al.size()];
+      for(int i = 0; i < al.size(); ++i)
+        l[i] = al.get(i);
       return l;
     } catch (FileNotFoundException e) {
-      System.out.println("ファイル " + infilename + " は存在しません");
+      System.err.println("ファイル " + infilename + " は存在しません");
       return null;
     }
   }
