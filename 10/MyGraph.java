@@ -9,7 +9,11 @@ public class MyGraph {
       File file = new File(filename);
       Scanner scanner = new Scanner(file);
       int v = scanner.nextInt();
+      if (v > 50)
+        throw new InputMismatchException("頂点数が多すぎます");
       int e = scanner.nextInt();
+      if (e > 100)
+        throw new InputMismatchException("枝数が多すぎます");
       graph = new ArrayList<ArrayList<MyEdge>>();
       for (int i = 0; i < v; ++i)
         graph.add(new ArrayList<MyEdge>());
@@ -18,6 +22,8 @@ public class MyGraph {
         f = scanner.nextInt();
         t = scanner.nextInt();
         d = scanner.nextInt();
+        if (d > 9999 || d < 1)
+          throw new InputMismatchException("枝の重みが不正です");
         graph.get(f).add(new MyEdge(t,d));
       }
     } catch (FileNotFoundException e) {
