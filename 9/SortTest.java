@@ -10,9 +10,14 @@ public class SortTest {
       return;
     }
     BucketSort bs = new BucketSort();
-    input = bs.sort(input);
-    for (int i = 0; i < input.size(); ++i) {
-      System.out.println(input.get(i));
+    try {
+      input = bs.sort(input);
+      for (int i = 0; i < input.size(); ++i) {
+        System.out.println(input.get(i));
+      }
+    } catch (InputMismatchException e) {
+      System.out.println("アルファベットが多すぎます");
+      return;
     }
   }
 
@@ -31,7 +36,8 @@ public class SortTest {
       Scanner scan = new Scanner(content);
       while (scan.hasNext()) {
         String str = scan.next();
-        l.add(str);
+        if (str.matches("[a-z]+"))
+          l.add(str);
       }
       return l;
     } catch (FileNotFoundException e) {

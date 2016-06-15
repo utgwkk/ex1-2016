@@ -13,6 +13,11 @@ class BucketSort {
       bucket.get((int)(firstChar)-(int)'a').add(input.get(i));
     }
     for (int i = 0; i < 26; ++i) {
+      if (bucket.get(i).size() > 100) {
+        throw new InputMismatchException();
+      }
+    }
+    for (int i = 0; i < 26; ++i) {
       bucket.set(i, bubbleSort(bucket.get(i)));
     }
     ArrayList<String> result = new ArrayList<>();
@@ -39,7 +44,7 @@ class BucketSort {
   
   private static boolean greater(String lhs, String rhs) {
     if (lhs.length() == 0 || rhs.length() == 0) {
-      return lhs.length() < rhs.length();
+      return lhs.length() > rhs.length();
     }
     char[] lhsCh = lhs.toCharArray();
     char[] rhsCh = rhs.toCharArray();
