@@ -5,11 +5,7 @@ public class MyVertex {
     _dist = dist;
   }
 
-  public boolean greaterThan(MyVertex rhs) {
-    return this.dist > rhs.dist;
-  }
-
-  public boolean lesserThan(MyVertex rhs) {
-    return !this.greaterThan(rhs);
+  public int getDist () {
+    return dist;
   }
 }

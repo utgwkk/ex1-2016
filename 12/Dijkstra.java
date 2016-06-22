@@ -22,11 +22,10 @@ public class Dijkstra {
       prev.add(-1);
     }
     dist.set(start, 0);
-    MyPriorityQueue q = new MyPriorityQueue();
-    q.push(new MyVertex(start, 0));
-    while (!q.empty()) {
-      MyVertex v = q.top();
-      q.pop();
+    PriorityQueue<MyVertex> q = new PriorityQueue<>(Comparator.comparing(MyVertex::getDist));
+    q.add(new MyVertex(start, 0));
+    while (q.size() > 0) {
+      MyVertex v = q.poll();
       if (dist.get(v.v) < v.dist)
         continue;
       for (int i = 0; i < graph.get(v.v).size(); ++i) {
@@ -36,7 +35,7 @@ public class Dijkstra {
         if (dist.get(u) > dist.get(v.v) + cost) {
           dist.set(u, dist.get(v.v) + cost);
           prev.set(u, v.v);
-          q.push(new MyVertex(u, dist.get(u)));
+          q.add(new MyVertex(u, dist.get(u)));
         }
       }
     }
