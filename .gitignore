@@ -13,3 +13,7 @@ hs_err_pid*
 
 # others
 test.in
+*.dvi
+*.aux
+*.pdf
+*.log
