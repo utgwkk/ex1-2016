@@ -32,7 +32,7 @@ class BucketSort {
   private static ArrayList<String> bubbleSort (ArrayList<String> input) {
     for (int i = input.size() - 1; i >= 0; --i) {
       for (int j = 0; j < i; ++j) {
-        if (greater(input.get(j), input.get(j+1))) {
+        if (input.get(j).compareTo(input.get(j+1)) > 0) {
           String a = input.get(j+1);
           input.set(j + 1, input.get(j));
           input.set(j, a);
@@ -40,20 +40,5 @@ class BucketSort {
       }
     }
     return input;
-  }
-  
-  private static boolean greater(String lhs, String rhs) {
-    if (lhs.length() == 0 || rhs.length() == 0) {
-      return lhs.length() > rhs.length();
-    }
-    char[] lhsCh = lhs.toCharArray();
-    char[] rhsCh = rhs.toCharArray();
-    if (lhsCh[0] > rhsCh[0]) {
-      return true;
-    } else if (lhsCh[0] < rhsCh[0]) {
-      return false;
-    } else {
-      return greater(lhs.substring(1, lhs.length()), rhs.substring(1, rhs.length()));
-    }
   }
 }
