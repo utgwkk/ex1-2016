@@ -25,6 +25,7 @@ public class MyGraph {
         if (d > 9999 || d < 1)
           throw new InputMismatchException("枝の重みが不正です");
         graph.get(f).add(new MyEdge(t,d));
+        graph.get(t).add(new MyEdge(f,d));
       }
     } catch (FileNotFoundException e) {
     }
