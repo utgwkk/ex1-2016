@@ -5,12 +5,4 @@ public class MyEdge {
     this.to = t;
     this.dist = d;
   }
-
-  public boolean greaterThan(MyEdge rhs) {
-    return this.dist > rhs.dist;
-  }
-
-  public boolean lesserThan(MyEdge rhs) {
-    return !this.greaterThan(rhs);
-  }
 }
