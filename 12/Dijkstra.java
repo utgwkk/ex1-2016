@@ -21,15 +21,17 @@ public class Dijkstra {
       dist.add(INF);
       prev.add(-1);
     }
-    dist.set(start, 0);
     PriorityQueue<MyVertex> q = new PriorityQueue<>(Comparator.comparing(MyVertex::getDist));
-    q.add(new MyVertex(start, 0));
+    if (start >= 0 && start < graph.getVsize()) {
+      dist.set(start, 0);
+      q.add(new MyVertex(start, 0));
+    }
     while (q.size() > 0) {
       MyVertex v = q.poll();
-      if (dist.get(v.v) < v.dist)
+      if (dist.get(v.getNumber()) < v.getDist())
         continue;
-      for (int i = 0; i < graph.get(v.v).size(); ++i) {
-        MyEdge edge = graph.get(v.v).get(i);
+      for (int i = 0; i < graph.getEdges(v.getNumber()).size(); ++i) {
+        MyEdge edge = graph.getEdges(v.getNumber()).get(i);
         int u = edge.to;
         int cost = edge.dist;
         if (dist.get(u) > dist.get(v.v) + cost) {
@@ -39,19 +41,23 @@ public class Dijkstra {
         }
       }
     }
-    LinkedList<Integer> route = new LinkedList<>();
+    ArrayList<Integer> route = new ArrayList<>();
     int now = goal;
-    while(now != -1) {
-      route.addFirst(now);
+    while(now != -1 && now < graph.getVsize()) {
+      route.add(0, now);
       now = prev.get(now);
     }
-    for (int i = 0; i < route.size(); ++i) {
-      System.out.print(route.get(i));
-      if (i < route.size() - 1) {
-        System.out.print(" ");
+    if (route.isEmpty() || route.get(0) != start) {
+      System.out.println("最短経路が存在しません");
+    } else {
+      for (int i = 0; i < route.size(); ++i) {
+        System.out.print(route.get(i));
+        if (i < route.size() - 1) {
+          System.out.print(" ");
+        }
       }
+      System.out.println();
+      System.out.println(dist.get(goal));
     }
-    System.out.println();
-    System.out.println(dist.get(goal));
   }
 }
