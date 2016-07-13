@@ -28,15 +28,6 @@ public class MyGraph {
   }
 
   public ArrayList<MyEdge> getEdges (int id) {
-    ArrayList<MyEdge> result = new ArrayList<>();
-    for (int i = 0; i < this.graph.get(id).size(); ++i) {
-      // System.out.println(i);
-      result.add(this.graph.get(id).get(i));
-    }
-    return result;
-  }
-
-  public ArrayList<MyEdge> get (int id) {
     return this.graph.get(id);
   }
 

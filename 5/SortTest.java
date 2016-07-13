@@ -31,7 +31,9 @@ public class SortTest {
       int i = 0;
       while (scan.hasNext()) {
         int inint = scan.nextInt();
-        if (inint > 0 && inint < 10000 && i < 50) {
+        if (inint <= 0 || inint >= 10000)
+          throw new InputMismatchException();
+        if (i < 50) {
           l[i] = inint;
           ++i;
         }
@@ -39,6 +41,9 @@ public class SortTest {
       return l;
     } catch (FileNotFoundException e) {
       System.out.println("ファイル " + infilename + " は存在しません");
+      return null;
+    } catch (InputMismatchException e) {
+      System.out.println("不正なデータが入力されました");
       return null;
     }
   }
