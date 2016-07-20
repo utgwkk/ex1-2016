@@ -8,6 +8,7 @@ public class SearchTest {
     String filename = stdin.next();
     graph.ReadFromFile(filename);
     int start = stdin.nextInt();
-    Search.breadthFirstSearch(graph, start);
+    Search.depthFirstSearch(graph, start);
+    // Search.breadthFirstSearch(graph, start);
   }
 }
